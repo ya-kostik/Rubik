@@ -1,0 +1,27 @@
+{
+  "name": "indo.rubik",
+  "version": "1.0.0",
+  "description": "Main Rubik",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ya-kostik/Rubik.git"
+  },
+  "author": "Constatin T.",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ya-kostik/Rubik/issues"
+  },
+  "homepage": "https://github.com/ya-kostik/Rubik#readme",
+  "devDependencies": {
+    "babel-eslint": "^8.2.1",
+    "eslint": "^4.15.0",
+    "jest": "^22.0.6"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}

@@ -1,2 +1,2 @@
 # Rubik
-Main Rubik App
+Main Rubik
