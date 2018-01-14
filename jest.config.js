@@ -5,9 +5,13 @@ module.exports = {
     'lib/**/*.js',
     '!**/node_modules/**',
     '!**/vendor/**',
-    '!**/coverage/**'
+    '!**/coverage/**',
+    '!lib/helpers/kindOf.js',
+    '!lib/helpers/isPrimitive.js',
+    '!lib/helpers/assignDeep.js',
+    '!lib/helpers/assignSymbols.js',
   ],
   globals: {
-    
+
   }
 }
