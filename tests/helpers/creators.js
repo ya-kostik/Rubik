@@ -11,7 +11,7 @@ function createKubik(InstanceClass, app, name) {
   }
   const kubik = new InstanceClass;
   if (name) kubik.name = name;
-  if (app) app.addOneKubik(kubik);
+  if (app) app.addOne(kubik);
   return kubik;
 }
 
