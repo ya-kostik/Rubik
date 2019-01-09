@@ -90,3 +90,8 @@ You can use it, if you want.
 
 ### Method after
 You can add `async` method `after` to your kubik, and after application will `up` all kubiks, it will call `after` methods if they exists.
+
+### Name of Kubik
+Every Kubik's instance should contain `name` field.
+When you add your kubik to application, it get `name`, and use it.
+If your kubik doesn't contain `name`, `kubik.constructor.name.toLowerCase()` will be used.
