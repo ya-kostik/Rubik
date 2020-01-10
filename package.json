@@ -1,6 +1,6 @@
 {
   "name": "rubik-main",
-  "version": "2.1.3",
+  "version": "2.2.0",
   "description": "Main Rubik for your app",
   "main": "index.js",
   "scripts": {
