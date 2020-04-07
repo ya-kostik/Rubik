@@ -1,6 +1,6 @@
 {
   "name": "rubik-main",
-  "version": "2.2.0",
+  "version": "2.2.1",
   "description": "Main Rubik for your app",
   "main": "index.js",
   "scripts": {
@@ -18,12 +18,12 @@
   },
   "homepage": "https://github.com/ya-kostik/Rubik#readme",
   "devDependencies": {
-    "babel-eslint": "^10.0.3",
+    "babel-eslint": "^10.1.0",
     "eslint": "^6.8.0",
-    "jest": "^24.9.0"
+    "jest": "^25.2.7"
   },
   "dependencies": {
-    "hooks-mixin": "^1.2.1",
+    "hooks-mixin": "^1.2.2",
     "lodash": "^4.17.15"
   }
 }
