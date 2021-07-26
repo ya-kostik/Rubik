@@ -95,3 +95,58 @@ You can add `async` method `after` to your kubik, and after application will `up
 Every Kubik's instance should contain `name` field.
 When you add your kubik to application, it get `name`, and use it.
 If your kubik doesn't contain `name`, `kubik.constructor.name.toLowerCase()` will be used.
+
+### Attach and extract an application from different objects
+If you need an application attached to some object in your kubik,
+you can use the method `app.attach(object)` or static equivalent `App.attach(app, object)`.
+
+You can extract application from any object (if application was attached)
+by the static method `App.extract(object)`.
+
+For example simplest HTTP Kubik with express:
+```js
+// Some middleware
+const { App } = require('rubik-main');
+
+const check = async (req, res, next) => {
+  const app = App.extract(req);
+
+  const { Users } = app.storage.models;
+
+  try {
+    const user = await Users.auth(req.body.login, req.body.password);
+  } catch (err) {
+    return next(err);
+  }
+
+  return next();
+}
+
+// ...
+// ... preparing Kubik class
+class HTTP extends Kubik {
+  constructor() {
+    this.expressApp = express();
+  }
+
+  up() {
+    // Attach this.app to an req of express
+    this.expressApp.use((req, res, next) => this.app.attach(req));
+    // Another way this.expressApp.use((req, res, next) => App.attach(this.app, req));
+
+    // add middleware which uses Rubik's application inside
+    this.expressApp.use(check);
+
+    this.expressApp.listen(80);
+  }
+}
+
+
+// ...
+// ... add Kubik's instance into the application
+const app = new App();
+
+app.add(new SomeStorageKubik());
+app.add(new HTTP());
+```
+
