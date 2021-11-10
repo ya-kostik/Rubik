@@ -150,3 +150,70 @@ app.add(new SomeStorageKubik());
 app.add(new HTTP());
 ```
 
+## Bootstrap third-party modules
+You could bootstrap thrird-party modules throught lifecicle hooks.
+The general method is `.hook`:
+```js
+app.hook(hookName, hookCallback);
+```
+
+There are few hooks, which an `app` provides to you.
+All hooks are asyncronious.
+In this case, you could use async callbacks for it.
+
+### atStart
+Runs in the top of `app.up()`.
+In this hook you could add new kubiks, because none of them has been processed.
+```js
+app.hook('atStart', async () => {
+  // your code here
+});
+```
+### before
+Runs in the top of `app.up()`,
+but after the application calculated all the dependencies and prepared their kubiks for the up.
+
+In this hook you shouldn't add new kubiks, because all of them has been prepared.
+
+You could add some custom logic in this hook before the application upped.
+```js
+app.hook('before', async () => {
+  // your code here
+});
+```
+### after
+This hook runs after all kubiks was upped,
+but before the application runs their `after` methods.
+```js
+app.hook('after', async () => {
+  // your code here
+});
+```
+### atEnd
+This hook runs in the end of `app.up()`.
+
+You could bootstrap in this hook.
+```js
+app.hook('atEnd', async () => {
+  // your code here
+});
+```
+### beforeDown
+This hook runs in the top of `app.down()`
+
+You could run cleanup jobs here.
+
+```js
+app.hook('beforeDown', async () => {
+  // your code here
+});
+```
+### afterDown
+This hook runs in the top of `app.down()`
+
+You could run cleanup jobs here.
+```js
+app.hook('afterDown', async () => {
+  // your code here
+});
+```
